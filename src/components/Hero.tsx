@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { ArrowDown, Github as GitHub, Linkedin, Mail } from 'lucide-react';
+import { ArrowDown, Github as GitHub, Linkedin, Mail, FileText } from 'lucide-react';
 
 const Hero = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -96,6 +96,15 @@ const Hero = () => {
               >
                 <Mail size={24} />
               </a>
+              <a 
+                href="https://drive.google.com/file/d/1XTr8bl3qU_Ku5dDMr3UyyslMg44yqzCQ/view?usp=drive_link" 
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-gray-700 hover:text-gray-900 dark:text-gray-300 dark:hover:text-white transition-colors"
+                aria-label="Download CV"
+              >
+                <FileText size={24} />
+              </a>
             </div>
           </div>
           <div 
@@ -128,7 +137,7 @@ const Hero = () => {
         <div className="absolute bottom-10 left-1/2 transform -translate-x-1/2 animate-bounce">
           <a 
             href="#about" 
-            className="text-gray-600 dark:text-gray-400 hover:text-teal-600 dark:hover:text-teal-400 transition-colors"
+            className="text-gray-700 dark:text-gray-400 hover:text-teal-600 dark:hover:text-teal-400 transition-colors"
             aria-label="Scroll to About section"
           >
             <ArrowDown size={24} />
