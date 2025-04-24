@@ -40,8 +40,8 @@ const projects = [
     image: 'https://images.pexels.com/photos/67468/pexels-photo-67468.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
     technologies: ['Django', 'PostgreSQL', 'Bootstrap', 'Twilio API'],
     category: 'backend',
-    live: 'https://example.com/reservations',
-    repo: 'https://github.com/lewismosage/restaurant-reservations'
+    live: '#',
+    repo: '#'
   },
   {
     id: 5,
@@ -50,8 +50,8 @@ const projects = [
     image: 'https://images.pexels.com/photos/1546168/pexels-photo-1546168.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
     technologies: ['React', 'Node.js', 'MongoDB', 'Google Maps API'],
     category: 'fullstack',
-    live: 'https://example.com/realestate',
-    repo: 'https://github.com/lewismosage/real-estate-portal'
+    live: '#',
+    repo: '#'
   },
   {
     id: 6,
@@ -60,8 +60,8 @@ const projects = [
     image: 'https://images.pexels.com/photos/6444/pencil-typography-black-design.jpg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
     technologies: ['Express.js', 'MySQL', 'React', 'AWS S3'],
     category: 'backend',
-    live: 'https://example.com/cms',
-    repo: 'https://github.com/lewismosage/content-management-system'
+    live: '#',
+    repo: '#'
   }
 ];
 
