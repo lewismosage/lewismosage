@@ -20,8 +20,8 @@ const projects = [
     image: 'https://images.pexels.com/photos/4386431/pexels-photo-4386431.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
     technologies: ['React', 'JavaScript', 'Python', 'HTML', 'Chart.js'],
     category: 'fullstack',
-    live: 'https://example.com/inventory-system',
-    repo: 'https://github.com/lewismosage/inventory-manager'
+    live: 'https://trackit-now.vercel.app/',
+    repo: 'https://github.com/lewismosage/trackitnow'
  },
  {
   id: 3,
