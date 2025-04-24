@@ -35,7 +35,7 @@ const experiences = [
     company: 'IBM',
     period: 'Jan 2022 - Jan 2023',
     description: [
-      'Intensive 12-month covering modern web development',
+      'Completed an intensive 12-month program focusing on modern web development tools and practices.',
       'Built multiple projects using the MERN stack',
       'Collaborated with peers on team projects',
       'Received certification for course completion'
