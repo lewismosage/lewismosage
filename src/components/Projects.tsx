@@ -31,7 +31,7 @@ const projects = [
   technologies: ['Vite', 'TypeScript', 'Tailwind CSS', 'Supabase'],
   category: 'fullstack',
   live: 'https://east-africa-child-neurology-association.vercel.app/',
-  repo: 'https://github.com/lewismosage/eacna',
+  repo: 'https://github.com/lewismosage/east-africa-child-neurology-association',
 },
   {
     id: 4,
