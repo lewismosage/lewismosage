@@ -50,8 +50,8 @@ const projects = [
     image: 'https://images.pexels.com/photos/1546168/pexels-photo-1546168.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
     technologies: ['React', 'Node.js', 'MongoDB', 'Google Maps API'],
     category: 'fullstack',
-    live: '#',
-    repo: '#'
+    live: 'https://uko-wapi-real-estate.vercel.app/',
+    repo: 'https://github.com/lewismosage/UkoWapi-RealEstate'
   },
   {
     id: 6,
