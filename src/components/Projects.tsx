@@ -46,7 +46,7 @@ const projects = [
   {
     id: 6,
     title: 'Savannatek Software Company',
-    description: 'Built Savannatek, a modern software company website. The platform showcases digital solutions, client services, and company values with a clean design.',
+    description: 'Built Savannatek, a modern software company website that showcases digital solutions, client services, and company values with a clean design.',
     image: 'https://images.pexels.com/photos/1181271/pexels-photo-1181271.jpeg',
     technologies: ['React', 'TypeScript', 'Tailwind CSS', 'Supabase'],
     category: 'fullstack',
