@@ -33,7 +33,7 @@ const projects = [
   live: 'https://east-africa-child-neurology-association.vercel.app/',
   repo: 'https://github.com/lewismosage/east-africa-child-neurology-association',
 },
-  {
+ {/* {
     id: 4,
     title: 'Restaurant Reservation System',
     description: 'An online reservation system for restaurants with table management and customer notification features.',
@@ -42,7 +42,7 @@ const projects = [
     category: 'backend',
     live: '#',
     repo: '#'
-  },
+  }, */}, 
   {
     id: 5,
     title: 'Real Estate Listing Portal',
@@ -53,7 +53,7 @@ const projects = [
     live: 'https://uko-wapi-real-estate.vercel.app/',
     repo: 'https://github.com/lewismosage/UkoWapi-RealEstate'
   },
-  {
+ {/* {
     id: 6,
     title: 'Content Management System',
     description: 'A custom CMS built for bloggers and content creators with markdown support and media management.',
@@ -62,7 +62,17 @@ const projects = [
     category: 'backend',
     live: '#',
     repo: '#'
-  }
+  } */},
+  {
+    id: 7,
+    title: 'Savannatek Software Company',
+    description: 'Built Savannatek, a modern software company website. The platform showcases digital solutions, client services, and company values with a clean, professional design.',
+    image: 'https://images.pexels.com/photos/1181271/pexels-photo-1181271.jpeg',
+    technologies: ['React', 'TypeScript', 'Tailwind CSS', 'Supabase'],
+    category: 'fullstack',
+    live: 'https://savannatek.vercel.app/',
+    repo: 'https://github.com/lewismosage/savannatek',
+  }  
 ];
 
 const Projects = () => {
