@@ -49,7 +49,7 @@ const projects = [
     description: 'A property listing website with search functionality, property details, and contact forms.',
     image: 'https://images.pexels.com/photos/1546168/pexels-photo-1546168.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
     technologies: ['React', 'Node.js', 'MongoDB', 'Google Maps API'],
-    category: 'fullstack',
+    category: 'frontend',
     live: 'https://uko-wapi-real-estate.vercel.app/',
     repo: 'https://github.com/lewismosage/UkoWapi-RealEstate'
   },
