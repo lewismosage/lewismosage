@@ -32,18 +32,8 @@ const projects = [
   category: 'fullstack',
   live: 'https://east-africa-child-neurology-association.vercel.app/',
   repo: 'https://github.com/lewismosage/east-africa-child-neurology-association',
-},
- {/* {
-    id: 4,
-    title: 'Restaurant Reservation System',
-    description: 'An online reservation system for restaurants with table management and customer notification features.',
-    image: 'https://images.pexels.com/photos/67468/pexels-photo-67468.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
-    technologies: ['Django', 'PostgreSQL', 'Bootstrap', 'Twilio API'],
-    category: 'backend',
-    live: '#',
-    repo: '#'
-  }, */}, 
-  {
+}, 
+{
     id: 5,
     title: 'Real Estate Listing Portal',
     description: 'A property listing website with search functionality, property details, and contact forms.',
@@ -53,18 +43,8 @@ const projects = [
     live: 'https://uko-wapi-real-estate.vercel.app/',
     repo: 'https://github.com/lewismosage/UkoWapi-RealEstate'
   },
- {/* {
-    id: 6,
-    title: 'Content Management System',
-    description: 'A custom CMS built for bloggers and content creators with markdown support and media management.',
-    image: 'https://images.pexels.com/photos/6444/pencil-typography-black-design.jpg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
-    technologies: ['Express.js', 'MySQL', 'React', 'AWS S3'],
-    category: 'backend',
-    live: '#',
-    repo: '#'
-  } */},
   {
-    id: 7,
+    id: 6,
     title: 'Savannatek Software Company',
     description: 'Built Savannatek, a modern software company website. The platform showcases digital solutions, client services, and company values with a clean, professional design.',
     image: 'https://images.pexels.com/photos/1181271/pexels-photo-1181271.jpeg',
