@@ -30,7 +30,7 @@ const projects = [
   image: 'https://images.pexels.com/photos/7089401/pexels-photo-7089401.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
   technologies: ['Vite', 'TypeScript', 'Tailwind CSS', 'Supabase'],
   category: 'fullstack',
-  live: 'https://east-africa-child-neurology-association.vercel.app/',
+  live: 'https://eacna.vercel.app/',
   repo: 'https://github.com/lewismosage/east-africa-child-neurology-association',
 }, 
 {
