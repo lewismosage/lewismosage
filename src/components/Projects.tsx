@@ -1,81 +1,101 @@
-import React, { useState } from 'react';
-import { ExternalLink, Github as GitHub, Code } from 'lucide-react';
-import { useInView } from '../hooks/useInView';
-import AskDrAI from '../assets/askdr.ai.png';
-import EACNA from '../assets/eacna.png';
-import AgriConnect from '../assets/agriconnect.png';
+import React, { useState } from "react";
+import { ExternalLink, Github as GitHub, Code } from "lucide-react";
+import { useInView } from "../hooks/useInView";
+import AskDrAI from "../assets/askdrai.png";
+import EACNA from "../assets/eacna.png";
+import AgriConnect from "../assets/agriconnect.png";
 
 const projects = [
   {
     id: 1,
-    title: 'AgriConnect – Smart Agricultural Marketplace ',
-    description: 'A full-featured Agricultural Marketplace platform with product listings, shopping cart, user authentication, and payment integration.',
-    image: 'src={AgriConnect} alt="AgriConnect" className="w-full h-full object-cover object-center transition-transform duration-500 hover:scale-110"',
-    technologies: ['React', 'Vite', 'Django (REST API)', 'Tailwind CSS', 'PostgreSQL'],
-    category: 'fullstack',
-    live: 'https://agriconnect-app.vercel.app/',
-    repo: 'https://github.com/lewismosage/AgriConnect'
+    title: "AgriConnect – Smart Agricultural Marketplace ",
+    description:
+      "A full-featured Agricultural Marketplace platform with product listings, shopping cart, user authentication, and payment integration.",
+    image: AgriConnect,
+    technologies: [
+      "React",
+      "Vite",
+      "Django (REST API)",
+      "Tailwind CSS",
+      "PostgreSQL",
+    ],
+    category: "fullstack",
+    live: "https://agriconnect-app.vercel.app/",
+    repo: "https://github.com/lewismosage/AgriConnect",
   },
   {
-  id: 2,
-  title: 'AskDr.AI',
-  description: 'An AI-powered health assistant that provides instant symptom analysis and medication guidance using a secure, responsive interface.',
-  image: 'src={AskDrAI} alt="AskDr.AI" className="w-full h-full object-cover object-center transition-transform duration-500 hover:scale-110",',
-  technologies: ['TypeScript', 'Tailwind CSS', 'Python', 'Django', 'REST API', 'Vite'],
-  category: 'fullstack',
-  live: '', 
-  repo: 'https://github.com/lewismosage/AskDr.AI'
-},
- {
-  id: 3,
-  title: 'EACNA – East Africa Child Neurology Association',
-  description: 'A modern platform connecting neurologists, sharing research, and organizing regional events to improve child neurology collaboration in East Africa.',
-  image: 'src={EACNA} alt="EACNA" className="w-full h-full object-cover object-center transition-transform duration-500 hover:scale-110"',
-  technologies: ['Vite', 'TypeScript', 'Tailwind CSS', 'Supabase'],
-  category: 'fullstack',
-  live: 'https://east-africa-child-neurology-association.vercel.app/',
-  repo: 'https://github.com/lewismosage/east-africa-child-neurology-association',
-}, 
-{
+    id: 2,
+    title: "AskDr.AI",
+    description:
+      "An AI-powered health assistant that provides instant symptom analysis and medication guidance using a secure, responsive interface.",
+    image: AskDrAI,
+    technologies: [
+      "TypeScript",
+      "Tailwind CSS",
+      "Python",
+      "Django",
+      "REST API",
+      "Vite",
+    ],
+    category: "fullstack",
+    live: "",
+    repo: "https://github.com/lewismosage/AskDr.AI",
+  },
+  {
+    id: 3,
+    title: "EACNA – East Africa Child Neurology Association",
+    description:
+      "A modern platform connecting neurologists, sharing research, and organizing regional events to improve child neurology collaboration in East Africa.",
+    image: EACNA,
+    technologies: ["Vite", "TypeScript", "Tailwind CSS", "Supabase"],
+    category: "fullstack",
+    live: "https://eacna.vercel.app/",
+    repo: "https://github.com/lewismosage/eacna",
+  },
+  {
     id: 5,
-    title: 'Real Estate Listing Portal',
-    description: 'A property listing website with search functionality, property details, and contact forms.',
-    image: 'https://images.pexels.com/photos/1546168/pexels-photo-1546168.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
-    technologies: ['React', 'Node.js', 'MongoDB', 'Google Maps API'],
-    category: 'frontend',
-    live: 'https://uko-wapi-real-estate.vercel.app/',
-    repo: 'https://github.com/lewismosage/UkoWapi-RealEstate'
+    title: "Real Estate Listing Portal",
+    description:
+      "A property listing website with search functionality, property details, and contact forms.",
+    image:
+      "https://images.pexels.com/photos/1546168/pexels-photo-1546168.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+    technologies: ["React", "Node.js", "MongoDB", "Google Maps API"],
+    category: "frontend",
+    live: "https://uko-wapi-real-estate.vercel.app/",
+    repo: "https://github.com/lewismosage/UkoWapi-RealEstate",
   },
   {
     id: 6,
-    title: 'Savannatek Software Company',
-    description: 'Built Savannatek, a modern software company website that showcases digital solutions, client services, and company values with a clean design.',
-    image: 'https://images.pexels.com/photos/1181271/pexels-photo-1181271.jpeg',
-    technologies: ['React', 'TypeScript', 'Tailwind CSS', 'Supabase'],
-    category: 'fullstack',
-    live: 'https://savannatek.vercel.app/',
-    repo: 'https://github.com/lewismosage/savannatek',
-  }  
+    title: "Savannatek Software Company",
+    description:
+      "Built Savannatek, a modern software company website that showcases digital solutions, client services, and company values with a clean design.",
+    image: "https://images.pexels.com/photos/1181271/pexels-photo-1181271.jpeg",
+    technologies: ["React", "TypeScript", "Tailwind CSS", "Supabase"],
+    category: "fullstack",
+    live: "https://savannatek.vercel.app/",
+    repo: "https://github.com/lewismosage/savannatek",
+  },
 ];
 
 const Projects = () => {
-  const [filter, setFilter] = useState('all');
+  const [filter, setFilter] = useState("all");
   const { ref, inView } = useInView({ threshold: 0.1 });
-  
-  const filteredProjects = filter === 'all' 
-    ? projects 
-    : projects.filter(project => project.category === filter);
-  
+
+  const filteredProjects =
+    filter === "all"
+      ? projects
+      : projects.filter((project) => project.category === filter);
+
   return (
-    <section 
-      id="projects" 
+    <section
+      id="projects"
       ref={ref}
       className="py-20 bg-gray-50 dark:bg-gray-800"
     >
       <div className="container mx-auto px-6">
-        <div 
+        <div
           className={`text-center mb-16 transition-all duration-700 ${
-            inView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+            inView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
           }`}
         >
           <h2 className="text-3xl md:text-4xl font-bold mb-4 text-gray-900 dark:text-white">
@@ -83,24 +103,25 @@ const Projects = () => {
           </h2>
           <div className="w-20 h-1 bg-teal-500 mx-auto mb-6"></div>
           <p className="text-gray-700 dark:text-gray-300 max-w-2xl mx-auto">
-            A showcase of my recent work and the technologies I've been working with
+            A showcase of my recent work and the technologies I've been working
+            with
           </p>
         </div>
-        
-        <div 
+
+        <div
           className={`flex justify-center mb-12 transition-all duration-700 delay-100 ${
-            inView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+            inView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
           }`}
         >
           <div className="inline-flex p-1 bg-gray-200 dark:bg-gray-700 rounded-lg">
-            {['all', 'frontend', 'backend', 'fullstack'].map(category => (
+            {["all", "frontend", "backend", "fullstack"].map((category) => (
               <button
                 key={category}
                 onClick={() => setFilter(category)}
                 className={`px-4 py-2 text-sm font-medium rounded-md transition-all ${
-                  filter === category 
-                    ? 'bg-white dark:bg-gray-600 text-teal-600 dark:text-teal-400 shadow-sm' 
-                    : 'text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white'
+                  filter === category
+                    ? "bg-white dark:bg-gray-600 text-teal-600 dark:text-teal-400 shadow-sm"
+                    : "text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white"
                 }`}
               >
                 {category.charAt(0).toUpperCase() + category.slice(1)}
@@ -108,19 +129,24 @@ const Projects = () => {
             ))}
           </div>
         </div>
-        
+
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {filteredProjects.map((project, index) => (
-            <div 
+            <div
               key={project.id}
-              className={`bg-white dark:bg-gray-700 rounded-xl overflow-hidden shadow-md hover:shadow-lg transition-all duration-500 transform hover:-translate-y-2 delay-${Math.min(index * 100, 500)} ${
-                inView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+              className={`bg-white dark:bg-gray-700 rounded-xl overflow-hidden shadow-md hover:shadow-lg transition-all duration-500 transform hover:-translate-y-2 delay-${Math.min(
+                index * 100,
+                500
+              )} ${
+                inView
+                  ? "opacity-100 translate-y-0"
+                  : "opacity-0 translate-y-10"
               }`}
             >
               <div className="h-48 overflow-hidden">
-                <img 
-                  src={project.image} 
-                  alt={project.title} 
+                <img
+                  src={project.image}
+                  alt={project.title}
                   className="w-full h-full object-cover object-center transition-transform duration-500 hover:scale-110"
                 />
               </div>
@@ -133,7 +159,7 @@ const Projects = () => {
                 </p>
                 <div className="flex flex-wrap gap-2 mb-6">
                   {project.technologies.map((tech, techIndex) => (
-                    <span 
+                    <span
                       key={techIndex}
                       className="px-2 py-1 bg-gray-100 dark:bg-gray-600 text-gray-700 dark:text-gray-300 text-xs rounded"
                     >
@@ -163,10 +189,10 @@ const Projects = () => {
             </div>
           ))}
         </div>
-        
-        <div 
+
+        <div
           className={`mt-16 text-center transition-all duration-700 delay-500 ${
-            inView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+            inView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
           }`}
         >
           <a
