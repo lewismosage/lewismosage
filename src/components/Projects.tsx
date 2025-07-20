@@ -1,33 +1,36 @@
 import React, { useState } from 'react';
 import { ExternalLink, Github as GitHub, Code } from 'lucide-react';
 import { useInView } from '../hooks/useInView';
+import AskDrAI from '../assets/askdr.ai.png';
+import EACNA from '../assets/eacna.png';
+import AgriConnect from '../assets/agriconnect.png';
 
 const projects = [
   {
     id: 1,
     title: 'AgriConnect – Smart Agricultural Marketplace ',
     description: 'A full-featured Agricultural Marketplace platform with product listings, shopping cart, user authentication, and payment integration.',
-    image: 'https://images.pexels.com/photos/230544/pexels-photo-230544.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
+    image: 'src={AgriConnect} alt="AgriConnect" className="w-full h-full object-cover object-center transition-transform duration-500 hover:scale-110"',
     technologies: ['React', 'Vite', 'Django (REST API)', 'Tailwind CSS', 'PostgreSQL'],
     category: 'fullstack',
     live: 'https://agriconnect-app.vercel.app/',
     repo: 'https://github.com/lewismosage/AgriConnect'
   },
   {
-    id: 2,
-    title: 'Inventory Management System',
-    description: 'A comprehensive inventory management application with real-time stock tracking, product categorization, and inventory analytics.',
-    image: 'https://images.pexels.com/photos/4386431/pexels-photo-4386431.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
-    technologies: ['React', 'JavaScript', 'Python', 'HTML', 'Chart.js'],
-    category: 'fullstack',
-    live: 'https://trackit-now.vercel.app/',
-    repo: 'https://github.com/lewismosage/trackitnow'
- },
+  id: 2,
+  title: 'AskDr.AI',
+  description: 'An AI-powered health assistant that provides instant symptom analysis and medication guidance using a secure, responsive interface.',
+  image: 'src={AskDrAI} alt="AskDr.AI" className="w-full h-full object-cover object-center transition-transform duration-500 hover:scale-110",',
+  technologies: ['TypeScript', 'Tailwind CSS', 'Python', 'Django', 'REST API', 'Vite'],
+  category: 'fullstack',
+  live: '', 
+  repo: 'https://github.com/lewismosage/AskDr.AI'
+},
  {
   id: 3,
   title: 'EACNA – East Africa Child Neurology Association',
   description: 'A modern platform connecting neurologists, sharing research, and organizing regional events to improve child neurology collaboration in East Africa.',
-  image: 'https://images.pexels.com/photos/7089401/pexels-photo-7089401.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
+  image: 'src={EACNA} alt="EACNA" className="w-full h-full object-cover object-center transition-transform duration-500 hover:scale-110"',
   technologies: ['Vite', 'TypeScript', 'Tailwind CSS', 'Supabase'],
   category: 'fullstack',
   live: 'https://east-africa-child-neurology-association.vercel.app/',
