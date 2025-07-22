@@ -97,7 +97,7 @@ const Hero = () => {
                 <Mail size={24} />
               </a>
               <a 
-                href="https://drive.google.com/file/d/1B8KQIyMBENdTYqdP_x8g7W0dYTnZOaKA/view?usp=drive_link" 
+                href="https://drive.google.com/file/d/1RPAfMRjCwAyfW1ETPjz-dbnRnl7Uv_wM/view?usp=drive_link" 
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-gray-700 hover:text-gray-900 dark:text-gray-300 dark:hover:text-white transition-colors"
