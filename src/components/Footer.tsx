@@ -10,7 +10,7 @@ const Footer = () => {
         {/* Logo and description */}
         <div className="mb-6">
           <a href="#hero" className="text-2xl font-bold tracking-tight bg-gradient-to-r from-teal-400 to-blue-500 bg-clip-text text-transparent">
-            LM
+            LEWIS
           </a>
           <p className="mt-2 text-gray-400 max-w-md">
             Full Stack Developer specializing in creating dynamic software solutions using modern technologies.
@@ -82,10 +82,6 @@ const Footer = () => {
           <div className="flex flex-col sm:flex-row justify-between items-center">
             <p className="text-gray-500 text-sm mb-2 sm:mb-0">
               &copy; {currentYear} Lewis Mosage. All rights reserved.
-            </p>
-            
-            <p className="flex items-center text-sm text-gray-500">
-              Made with <Heart size={14} className="text-red-500 mx-1" /> by Lewis Mosage
             </p>
           </div>
         </div>

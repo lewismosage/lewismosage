@@ -8,7 +8,7 @@ const Hero = () => {
     setIsVisible(true);
   }, []);
 
-  const skills = ['React', 'Node.js', 'Express', 'JavaScript', 'Python', 'Full Stack Developer'];
+  const skills = ['React', 'Node.js', 'Express', 'TypeScript', 'Python', 'Java','Full Stack Engineer'];
   const [currentSkill, setCurrentSkill] = useState(0);
 
   useEffect(() => {
@@ -97,7 +97,7 @@ const Hero = () => {
                 <Mail size={24} />
               </a>
               <a 
-                href="https://drive.google.com/file/d/1B8KQIyMBENdTYqdP_x8g7W0dYTnZOaKA/view?usp=drive_link" 
+                href="https://drive.google.com/file/d/1RPAfMRjCwAyfW1ETPjz-dbnRnl7Uv_wM/view?usp=drive_link" 
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-gray-700 hover:text-gray-900 dark:text-gray-300 dark:hover:text-white transition-colors"
@@ -119,7 +119,7 @@ const Hero = () => {
                   <h2 className="text-white text-2xl font-bold mb-4">Full Stack Developer</h2>
                   <p className="text-gray-100 mb-6">Transforming ideas into exceptional digital experiences</p>
                   <div className="flex flex-wrap justify-center gap-3">
-                    {['React', 'Node.js', 'Express', 'JavaScript', 'Python'].map((tech, index) => (
+                    {['React', 'Node.js', 'Express', 'TypeScript', 'Python', 'Java'].map((tech, index) => (
                       <span 
                         key={index}
                         className="px-3 py-1 bg-white/10 text-white text-sm rounded-full backdrop-blur-sm"

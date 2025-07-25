@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { ExternalLink, Github as GitHub, Code } from "lucide-react";
+import { ExternalLink, Github as GitHub, Code, ChevronDown, ChevronUp } from "lucide-react";
 import { useInView } from "../hooks/useInView";
 import AskDrAI from "../assets/askdrai.png";
 import EACNA from "../assets/eacna.png";
@@ -8,13 +8,13 @@ import AgriConnect from "../assets/agriconnect.png";
 const projects = [
   {
     id: 1,
-    title: "AgriConnect – Smart Agricultural Marketplace ",
+    title: "AgriConnect – Smart Agricultural Marketplace",
     description:
-      "A full-featured Agricultural Marketplace platform with product listings, shopping cart, user authentication, and payment integration.",
+      "A digital marketplace that empowers small-scale farmers by giving them direct access to buyers, fair pricing, and tools to manage sales, boosting income and reducing dependence on middlemen.",
     image: AgriConnect,
     technologies: [
       "React",
-      "Vite",
+      "TypeScript",
       "Django (REST API)",
       "Tailwind CSS",
       "PostgreSQL",
@@ -27,7 +27,7 @@ const projects = [
     id: 2,
     title: "AskDr.AI",
     description:
-      "An AI-powered health assistant that provides instant symptom analysis and medication guidance using a secure, responsive interface.",
+      "An AI-powered virtual health assistant that provides instant symptom analysis, medication guidance, and health insights, helping users make informed decisions and access support without costly or delayed doctor visits.",
     image: AskDrAI,
     technologies: [
       "TypeScript",
@@ -45,7 +45,7 @@ const projects = [
     id: 3,
     title: "EACNA – East Africa Child Neurology Association",
     description:
-      "A modern platform connecting neurologists, sharing research, and organizing regional events to improve child neurology collaboration in East Africa.",
+      "A regional platform with over 5,000 users across East Africa, connecting child neurology professionals through education, collaboration, and patient support tools to improve neurological care in underserved communities.",
     image: EACNA,
     technologies: ["Vite", "TypeScript", "Tailwind CSS", "Supabase"],
     category: "fullstack",
@@ -79,7 +79,15 @@ const projects = [
 
 const Projects = () => {
   const [filter, setFilter] = useState("all");
+  const [expandedDescriptions, setExpandedDescriptions] = useState<Record<number, boolean>>({});
   const { ref, inView } = useInView({ threshold: 0.1 });
+
+  const toggleDescription = (id: number) => {
+    setExpandedDescriptions(prev => ({
+      ...prev,
+      [id]: !prev[id]
+    }));
+  };
 
   const filteredProjects =
     filter === "all"
@@ -87,11 +95,7 @@ const Projects = () => {
       : projects.filter((project) => project.category === filter);
 
   return (
-    <section
-      id="projects"
-      ref={ref}
-      className="py-20 bg-gray-50 dark:bg-gray-800"
-    >
+    <section id="projects" ref={ref} className="py-20 bg-gray-50 dark:bg-gray-800">
       <div className="container mx-auto px-6">
         <div
           className={`text-center mb-16 transition-all duration-700 ${
@@ -103,8 +107,7 @@ const Projects = () => {
           </h2>
           <div className="w-20 h-1 bg-teal-500 mx-auto mb-6"></div>
           <p className="text-gray-700 dark:text-gray-300 max-w-2xl mx-auto">
-            A showcase of my recent work and the technologies I've been working
-            with
+            A showcase of my recent work and the technologies I've been working with
           </p>
         </div>
 
@@ -134,29 +137,44 @@ const Projects = () => {
           {filteredProjects.map((project, index) => (
             <div
               key={project.id}
-              className={`bg-white dark:bg-gray-700 rounded-xl overflow-hidden shadow-md hover:shadow-lg transition-all duration-500 transform hover:-translate-y-2 delay-${Math.min(
-                index * 100,
-                500
-              )} ${
-                inView
-                  ? "opacity-100 translate-y-0"
-                  : "opacity-0 translate-y-10"
+              className={`bg-white dark:bg-gray-700 rounded-xl overflow-hidden shadow-md hover:shadow-lg transition-all duration-500 transform hover:-translate-y-2 ${
+                inView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
               }`}
             >
               <div className="h-48 overflow-hidden">
                 <img
                   src={project.image}
                   alt={project.title}
-                  className="w-full h-full object-cover object-center transition-transform duration-500 hover:scale-110"
+                  className="w-full h-full object-cover transition-transform duration-500 hover:scale-110"
                 />
               </div>
               <div className="p-6">
                 <h3 className="text-xl font-bold mb-2 text-gray-800 dark:text-white">
                   {project.title}
                 </h3>
-                <p className="text-gray-600 dark:text-gray-300 mb-4 line-clamp-3">
-                  {project.description}
-                </p>
+                <div className="relative">
+                  <p 
+                    className={`text-gray-600 dark:text-gray-300 mb-4 ${
+                      expandedDescriptions[project.id] ? '' : 'line-clamp-3'
+                    }`}
+                  >
+                    {project.description}
+                  </p>
+                  <button 
+                    onClick={() => toggleDescription(project.id)}
+                    className="text-teal-600 dark:text-teal-400 text-sm font-medium flex items-center hover:underline"
+                  >
+                    {expandedDescriptions[project.id] ? (
+                      <>
+                        <ChevronUp size={16} className="mr-1" /> Read less
+                      </>
+                    ) : (
+                      <>
+                        <ChevronDown size={16} className="mr-1" /> Read more
+                      </>
+                    )}
+                  </button>
+                </div>
                 <div className="flex flex-wrap gap-2 mb-6">
                   {project.technologies.map((tech, techIndex) => (
                     <span
@@ -168,14 +186,20 @@ const Projects = () => {
                   ))}
                 </div>
                 <div className="flex justify-between pt-4 border-t border-gray-200 dark:border-gray-600">
-                  <a
-                    href={project.live}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex items-center text-sm font-medium text-teal-600 dark:text-teal-400 hover:text-teal-700 dark:hover:text-teal-300 transition-colors"
-                  >
-                    <ExternalLink size={16} className="mr-1" /> Live Demo
-                  </a>
+                  {project.live ? (
+                    <a
+                      href={project.live}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex items-center text-sm font-medium text-teal-600 dark:text-teal-400 hover:text-teal-700 dark:hover:text-teal-300 transition-colors"
+                    >
+                      <ExternalLink size={16} className="mr-1" /> Live Demo
+                    </a>
+                  ) : (
+                    <span className="flex items-center text-sm font-medium text-gray-400 dark:text-gray-500">
+                      <ExternalLink size={16} className="mr-1" /> Demo Coming Soon
+                    </span>
+                  )}
                   <a
                     href={project.repo}
                     target="_blank"

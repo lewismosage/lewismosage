@@ -2,9 +2,7 @@ import React, { useState, useEffect } from 'react';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import About from './components/About';
-import Skills from './components/Skills';
 import Projects from './components/Projects';
-import Experience from './components/Experience';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
 import ThemeToggle from './components/ThemeToggle';
@@ -18,8 +16,9 @@ function App() {
       const sections = document.querySelectorAll('section[id]');
       
       sections.forEach(section => {
-        const sectionTop = section.offsetTop - 100;
-        const sectionHeight = section.offsetHeight;
+        const sectionElement = section as HTMLElement;
+        const sectionTop = sectionElement.offsetTop - 100;
+        const sectionHeight = sectionElement.offsetHeight;
         const sectionId = section.getAttribute('id');
         
         if (window.scrollY >= sectionTop && window.scrollY < sectionTop + sectionHeight) {
@@ -42,9 +41,7 @@ function App() {
         <main>
           <Hero />
           <About />
-          <Skills />
           <Projects />
-          <Experience />
           <Contact />
         </main>
         <Footer />

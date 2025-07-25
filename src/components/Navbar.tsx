@@ -36,9 +36,7 @@ const Navbar: React.FC<NavbarProps> = ({ activeSection }) => {
   const navLinks = [
     { id: 'hero', label: 'Home' },
     { id: 'about', label: 'About' },
-    { id: 'skills', label: 'Skills' },
     { id: 'projects', label: 'Projects' },
-    { id: 'experience', label: 'Experience' },
     { id: 'contact', label: 'Contact' }
   ];
 
@@ -52,7 +50,7 @@ const Navbar: React.FC<NavbarProps> = ({ activeSection }) => {
     >
       <div className="container mx-auto px-6 flex justify-between items-center">
         <a href="#hero" className="text-2xl font-bold tracking-tight bg-gradient-to-r from-teal-500 to-blue-600 bg-clip-text text-transparent">
-          LM
+          LEWIS
         </a>
 
         {/* Desktop Navigation */}

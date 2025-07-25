@@ -36,7 +36,7 @@ const About = () => {
               My Journey
             </h3>
             <p className="text-gray-700 dark:text-gray-300 mb-4">
-              Hi, I'm Lewis Mosage, a Full Stack Developer from Nairobi, Kenya, with two years 
+              Hi, I'm Lewis Mosage, a Full Stack Software Engineer with four years 
               of experience in creating dynamic software solutions using modern technologies.
             </p>
             <p className="text-gray-700 dark:text-gray-300 mb-4">
