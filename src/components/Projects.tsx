@@ -3,6 +3,7 @@ import { ExternalLink, Github as GitHub, Code, ChevronDown, ChevronUp } from "lu
 import { useInView } from "../hooks/useInView";
 import AskDrAI from "../assets/askdrai.png";
 import EACNA from "../assets/eacna.png";
+import ACNA from "../assets/acna.png";
 import AgriConnect from "../assets/agriconnect.png";
 
 const projects = [
@@ -54,15 +55,21 @@ const projects = [
   },
   {
     id: 5,
-    title: "Real Estate Listing Portal",
+    title: "ACNA Healthcare Platform(Ongoing)",
     description:
-      "A property listing website with search functionality, property details, and contact forms.",
-    image:
-      "https://images.pexels.com/photos/1546168/pexels-photo-1546168.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
-    technologies: ["React", "Node.js", "MongoDB", "Google Maps API"],
-    category: "frontend",
-    live: "https://uko-wapi-real-estate.vercel.app/",
-    repo: "https://github.com/lewismosage/UkoWapi-RealEstate",
+      "A dynamic and scalable healthcare platform designed to serve over 50,000 users across the African continent, the ACNA (African Child Neurology Association) project is dedicated to improving the lives of children through accessible, collaborative, and innovative digital health solutions.",
+    image: ACNA,
+    technologies: [
+      "TypeScript",
+      "Tailwind CSS",
+      "Python",
+      "Django",
+      "REST API",
+      "Vite",
+    ],
+    category: "fullstack",
+    live: "https://acna-africa.vercel.app/",
+    repo: "https://github.com/lewismosage/acna",
   },
   {
     id: 6,
