@@ -39,7 +39,7 @@ const projects = [
       "Vite",
     ],
     category: "fullstack",
-    live: "",
+    live: "https://askdrai.vercel.app/",
     repo: "https://github.com/lewismosage/AskDr.AI",
   },
   {
