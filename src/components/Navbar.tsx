@@ -1,5 +1,6 @@
 import { useState, useEffect, type FC } from 'react';
-import { Menu, X, Github, Linkedin, Mail } from 'lucide-react';
+import { Menu, X, Mail } from 'lucide-react';
+import { GithubIcon, LinkedinIcon } from './icons/BrandIcons';
 
 interface NavbarProps {
   activeSection: string;
@@ -79,7 +80,7 @@ const Navbar: FC<NavbarProps> = ({ activeSection }) => {
             className="text-gray-700 hover:text-gray-900 dark:text-gray-300 dark:hover:text-gray-100 transition-colors"
             aria-label="GitHub"
           >
-            <Github size={20} />
+            <GithubIcon size={20} />
           </a>
           <a 
             href="https://linkedin.com/in/lewismosage" 
@@ -88,7 +89,7 @@ const Navbar: FC<NavbarProps> = ({ activeSection }) => {
             className="text-gray-700 hover:text-gray-900 dark:text-gray-300 dark:hover:text-gray-100 transition-colors"
             aria-label="LinkedIn"
           >
-            <Linkedin size={20} />
+            <LinkedinIcon size={20} />
           </a>
           <a 
             href="mailto:lewismosage@gmail.com" 
@@ -137,7 +138,7 @@ const Navbar: FC<NavbarProps> = ({ activeSection }) => {
               className="text-gray-700 hover:text-gray-900 dark:text-gray-300 dark:hover:text-gray-100"
               aria-label="GitHub"
             >
-              <Github size={20} />
+              <GithubIcon size={20} />
             </a>
             <a 
               href="https://linkedin.com/in/lewismosage" 
@@ -146,7 +147,7 @@ const Navbar: FC<NavbarProps> = ({ activeSection }) => {
               className="text-gray-700 hover:text-gray-900 dark:text-gray-300 dark:hover:text-gray-100"
               aria-label="LinkedIn"
             >
-              <Linkedin size={20} />
+              <LinkedinIcon size={20} />
             </a>
             <a 
               href="mailto:lewismosage@gmail.com" 

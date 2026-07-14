@@ -1,5 +1,6 @@
 import { useState } from "react";
-import { ExternalLink, Github as GitHub, Code, ChevronDown, ChevronUp } from "lucide-react";
+import { ExternalLink, Code, ChevronDown, ChevronUp } from "lucide-react";
+import { GithubIcon } from "./icons/BrandIcons";
 import { useInView } from "../hooks/useInView";
 import AskDrAI from "../assets/askdrai.png";
 import EACNA from "../assets/eacna.png";
@@ -213,7 +214,7 @@ const Projects = () => {
                     rel="noopener noreferrer"
                     className="flex items-center text-sm font-medium text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white transition-colors"
                   >
-                    <GitHub size={16} className="mr-1" /> View Code
+                    <GithubIcon size={16} className="mr-1" /> View Code
                   </a>
                 </div>
               </div>

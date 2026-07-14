@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
-import { ArrowDown, Github as GitHub, Linkedin, Mail, FileText } from 'lucide-react';
+import { ArrowDown, Mail, FileText } from 'lucide-react';
+import { GithubIcon, LinkedinIcon } from './icons/BrandIcons';
 
 const Hero = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -78,7 +79,7 @@ const Hero = () => {
                 className="text-gray-700 hover:text-gray-900 dark:text-gray-300 dark:hover:text-white transition-colors"
                 aria-label="GitHub"
               >
-                <GitHub size={24} />
+                <GithubIcon size={24} />
               </a>
               <a 
                 href="https://linkedin.com/in/lewismosage" 
@@ -87,7 +88,7 @@ const Hero = () => {
                 className="text-gray-700 hover:text-gray-900 dark:text-gray-300 dark:hover:text-white transition-colors"
                 aria-label="LinkedIn"
               >
-                <Linkedin size={24} />
+                <LinkedinIcon size={24} />
               </a>
               <a 
                 href="mailto:lewismosage@gmail.com" 
