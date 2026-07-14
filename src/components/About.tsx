@@ -1,4 +1,3 @@
-import React, { useEffect } from 'react';
 import { useInView } from '../hooks/useInView';
 import { Code, Globe, Server, Database } from 'lucide-react';
 

@@ -1,15 +1,13 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect, type FC } from 'react';
 import { Menu, X, Github, Linkedin, Mail } from 'lucide-react';
-import { useTheme } from '../contexts/ThemeContext';
 
 interface NavbarProps {
   activeSection: string;
 }
 
-const Navbar: React.FC<NavbarProps> = ({ activeSection }) => {
+const Navbar: FC<NavbarProps> = ({ activeSection }) => {
   const [isOpen, setIsOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
-  const { theme } = useTheme();
 
   const toggleMenu = () => setIsOpen(!isOpen);
 

@@ -1,0 +1,60 @@
+name: Weekly maintenance
+
+on:
+  schedule:
+    # Mondays at 08:00 UTC
+    - cron: "0 8 * * 1"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pull-requests: write
+
+concurrency:
+  group: weekly-maintenance
+  cancel-in-progress: false
+
+jobs:
+  dependency-status:
+    name: Refresh dependency status
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Generate dependency status
+        run: node scripts/generate-deps-status.mjs
+
+      - name: Summarize for Actions
+        run: |
+          {
+            echo "## Dependency status check"
+            echo ""
+            echo "Generated \`docs/dependency-status.md\`."
+            echo ""
+            echo "Opens a PR only when the file content changed"
+            echo "(no empty churn commits)."
+          } >> "$GITHUB_STEP_SUMMARY"
+
+      - name: Open PR only if changed
+        uses: peter-evans/create-pull-request@v6
+        with:
+          commit-message: "chore: refresh dependency status report"
+          title: "chore: refresh dependency status report"
+          body: |
+            Weekly maintenance regenerated `docs/dependency-status.md` because
+            outdated packages or audit findings changed.
+
+            Review Dependabot PRs for upgrades; this report is the snapshot only.
+          branch: chore/dependency-status
+          delete-branch: true
+          labels: dependencies, automated
