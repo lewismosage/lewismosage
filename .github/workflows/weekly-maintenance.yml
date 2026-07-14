@@ -46,7 +46,7 @@ jobs:
           } >> "$GITHUB_STEP_SUMMARY"
 
       - name: Open PR only if changed
-        uses: peter-evans/create-pull-request@v6
+        uses: peter-evans/create-pull-request@v8
         with:
           commit-message: "chore: refresh dependency status report"
           title: "chore: refresh dependency status report"
