@@ -10,6 +10,13 @@ updates:
       - dependencies
     commit-message:
       prefix: "chore(deps)"
+    ignore:
+      # Tailwind v4 requires PostCSS/Vite/CSS config migration — upgrade manually.
+      - dependency-name: "tailwindcss"
+        update-types: ["version-update:semver-major"]
+      # lucide-react v1 removed brand icons — migrate icons before bumping.
+      - dependency-name: "lucide-react"
+        update-types: ["version-update:semver-major"]
 
   - package-ecosystem: github-actions
     directory: "/"
