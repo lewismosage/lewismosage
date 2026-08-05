@@ -24,6 +24,7 @@ const projects = [
       "Docker",
     ],
     category: "fullstack",
+    live: "https://openops-servers-monitor.vercel.app",
     repo: "https://github.com/lewismosage/openops",
   },
   {
