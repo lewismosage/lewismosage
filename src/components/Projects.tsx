@@ -6,8 +6,26 @@ import AskDrAI from "../assets/askdrai.png";
 import EACNA from "../assets/eacna.png";
 import ACNA from "../assets/acna.png";
 import AgriConnect from "../assets/agriconnect.png";
+import OpenOps from "../assets/openops.png";
 
 const projects = [
+  {
+    id: 7,
+    title: "OpenOps – Developer Operations Console",
+    description:
+      "A lightweight DevOps console to monitor multiple servers and get alerted when something goes wrong. Register hosts, run HTTP/TCP/ping health checks, deploy a small agent for CPU, RAM, disk, and log metrics, then triage incidents with email notifications when checks fail or hosts drift.",
+    image: OpenOps,
+    technologies: [
+      "Next.js",
+      "TypeScript",
+      "FastAPI",
+      "Python",
+      "SQLite",
+      "Docker",
+    ],
+    category: "fullstack",
+    repo: "https://github.com/lewismosage/openops",
+  },
   {
     id: 1,
     title: "AgriConnect – Smart Agricultural Marketplace",
