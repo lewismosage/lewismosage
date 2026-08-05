@@ -7,6 +7,7 @@ import EACNA from "../assets/eacna.png";
 import ACNA from "../assets/acna.png";
 import AgriConnect from "../assets/agriconnect.png";
 import OpenOps from "../assets/openops.png";
+import Havoc from "../assets/havoc.png";
 
 const projects = [
   {
@@ -26,6 +27,23 @@ const projects = [
     category: "fullstack",
     live: "https://openops-servers-monitor.vercel.app",
     repo: "https://github.com/lewismosage/openops",
+  },
+  {
+    id: 8,
+    title: "Havoc – Chaos Engineering Platform",
+    description:
+      "Open-source chaos engineering platform for Kubernetes and microservices. Safely inject failures like pod kills and CPU stress, measure recovery, score resilience, and understand how distributed systems behave under stress — before production does. Plugin-based injectors, dry-run mode, and a React dashboard with live run events.",
+    image: Havoc,
+    technologies: [
+      "Go",
+      "React",
+      "Kubernetes",
+      "PostgreSQL",
+      "Helm",
+      "Docker",
+    ],
+    category: "fullstack",
+    repo: "https://github.com/lewismosage/havoc",
   },
   {
     id: 1,
