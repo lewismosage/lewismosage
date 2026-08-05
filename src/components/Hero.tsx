@@ -9,7 +9,15 @@ const Hero = () => {
     setIsVisible(true);
   }, []);
 
-  const skills = ['React', 'Node.js', 'Express', 'TypeScript', 'Python', 'Java','Full Stack Engineer'];
+  const skills = [
+    "Docker",
+    "Kubernetes",
+    "Go",
+    "React",
+    "TypeScript",
+    "Python",
+    "Next.js",
+  ];
   const [currentSkill, setCurrentSkill] = useState(0);
 
   useEffect(() => {
@@ -52,9 +60,9 @@ const Hero = () => {
               </p>
             </div>
             <p className="text-gray-700 dark:text-gray-300 text-lg max-w-2xl mb-8">
-              Specializing in creating dynamic software solutions using modern technologies.
-              I focus on developing functional, user-friendly systems that offer seamless and 
-              engaging experiences.
+              I specialize in full-stack systems for <span className="text-teal-600 dark:text-teal-400 font-medium">finance</span>{" "}
+              and <span className="text-teal-600 dark:text-teal-400 font-medium">healthcare</span> — and the platform work that powers them
+              (Docker, Kubernetes, and Go). I build reliable APIs, clean UIs, and operational tooling that helps teams ship with confidence.
             </p>
             <div className="flex flex-wrap gap-4">
               <a 
@@ -120,14 +128,16 @@ const Hero = () => {
                   <h2 className="text-white text-2xl font-bold mb-4">Full Stack Developer</h2>
                   <p className="text-gray-100 mb-6">Transforming ideas into exceptional digital experiences</p>
                   <div className="flex flex-wrap justify-center gap-3">
-                    {['React', 'Node.js', 'Express', 'TypeScript', 'Python', 'Java'].map((tech, index) => (
+                    {["React", "Next.js", "TypeScript", "Python", "Docker", "Kubernetes", "Go", "PostgreSQL"].map(
+                      (tech, index) => (
                       <span 
                         key={index}
                         className="px-3 py-1 bg-white/10 text-white text-sm rounded-full backdrop-blur-sm"
                       >
                         {tech}
                       </span>
-                    ))}
+                      )
+                    )}
                   </div>
                 </div>
               </div>

@@ -35,33 +35,27 @@ const About = () => {
               My Journey
             </h3>
             <p className="text-gray-700 dark:text-gray-300 mb-4">
-              Hi, I'm Lewis Mosage, a Full Stack Software Engineer with four years 
-              of experience in creating dynamic software solutions using modern technologies.
+              Hi, I'm Lewis Mosage. I build full-stack systems for <span className="text-teal-600 dark:text-teal-400 font-medium">finance and insurance</span> and <span className="text-teal-600 dark:text-teal-400 font-medium">healthcare</span> — from domain logic and APIs to the interfaces people use every day.
             </p>
             <p className="text-gray-700 dark:text-gray-300 mb-4">
-              Throughout my career, I've focused on developing functional, user-friendly 
-              systems that offer seamless and engaging experiences. I enjoy transforming 
-              ideas into interactive, intuitive platforms.
+              Lately, my focus has expanded into <span className="text-teal-600 dark:text-teal-400 font-medium">platform engineering and resilience</span>: Docker and Kubernetes-based deployments, Go services, and operational tooling that keeps systems stable under real load.
             </p>
             <p className="text-gray-700 dark:text-gray-300 mb-6">
-              My approach combines technical expertise with creative problem-solving, 
-              allowing me to build solutions that not only meet requirements but exceed 
-              expectations. I'm passionate about staying current with emerging technologies 
-              and best practices.
+              I’m also drawn to application security and developer tooling — anything that improves reliability, makes teams faster, and helps products scale safely.
             </p>
             
             <div className="flex flex-wrap gap-3">
-              <span className="px-4 py-2 bg-teal-100 dark:bg-teal-900/50 text-teal-800 dark:text-teal-200 rounded-full text-sm">
-                Full Stack Development
-              </span>
               <span className="px-4 py-2 bg-blue-100 dark:bg-blue-900/50 text-blue-800 dark:text-blue-200 rounded-full text-sm">
-                Responsive Design
+                Finance & Healthcare
               </span>
               <span className="px-4 py-2 bg-indigo-100 dark:bg-indigo-900/50 text-indigo-800 dark:text-indigo-200 rounded-full text-sm">
-                API Integration
+                Platform Engineering
               </span>
               <span className="px-4 py-2 bg-purple-100 dark:bg-purple-900/50 text-purple-800 dark:text-purple-200 rounded-full text-sm">
-                Database Design
+                Resilience & DevOps
+              </span>
+              <span className="px-4 py-2 bg-teal-100 dark:bg-teal-900/50 text-teal-800 dark:text-teal-200 rounded-full text-sm">
+                AppSec-minded Builds
               </span>
             </div>
           </div>
@@ -80,7 +74,7 @@ const About = () => {
                   Frontend Development
                 </h4>
                 <p className="text-gray-700 dark:text-gray-300">
-                  Creating intuitive and responsive user interfaces using React.js, Vue.js, HTML5, CSS3, and Tailwind CSS.
+                  Building modern, accessible interfaces with React and TypeScript (often with Next.js and Tailwind CSS).
                 </p>
               </div>
               
@@ -92,7 +86,7 @@ const About = () => {
                   Backend Development
                 </h4>
                 <p className="text-gray-700 dark:text-gray-300">
-                  Building robust server-side applications with Node.js, Express.js, Django, and Flask.
+                  Creating reliable APIs and services with Python and JavaScript, plus Go for performance-critical platform components.
                 </p>
               </div>
               
@@ -104,7 +98,7 @@ const About = () => {
                   Database Management
                 </h4>
                 <p className="text-gray-700 dark:text-gray-300">
-                  Designing and optimizing databases using MySQL, PostgreSQL, and SQLite.
+                  Designing and optimizing databases with PostgreSQL (and SQLite for local/test workflows).
                 </p>
               </div>
               
@@ -116,7 +110,7 @@ const About = () => {
                   DevOps
                 </h4>
                 <p className="text-gray-700 dark:text-gray-300">
-                  Implementing CI/CD pipelines and container orchestration using Git, GitHub, Docker, and Kubernetes.
+                  Building resilient deployments with Docker, Kubernetes, Helm, and observability-minded workflows.
                 </p>
               </div>
             </div>

@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { ExternalLink, Code, ChevronDown, ChevronUp } from "lucide-react";
 import { GithubIcon } from "./icons/BrandIcons";
 import { useInView } from "../hooks/useInView";
@@ -125,6 +125,7 @@ const projects = [
 const Projects = () => {
   const [filter, setFilter] = useState("all");
   const [expandedDescriptions, setExpandedDescriptions] = useState<Record<number, boolean>>({});
+  const [visibleCount, setVisibleCount] = useState(3);
   const { ref, inView } = useInView({ threshold: 0.1 });
 
   const toggleDescription = (id: number) => {
@@ -138,6 +139,14 @@ const Projects = () => {
     filter === "all"
       ? projects
       : projects.filter((project) => project.category === filter);
+
+  useEffect(() => {
+    // Reset pagination + "read more" state when switching categories.
+    setVisibleCount(3);
+    setExpandedDescriptions({});
+  }, [filter]);
+
+  const visibleProjects = filteredProjects.slice(0, visibleCount);
 
   return (
     <section id="projects" ref={ref} className="py-20 bg-gray-50 dark:bg-gray-800">
@@ -179,7 +188,7 @@ const Projects = () => {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {filteredProjects.map((project) => (
+          {visibleProjects.map((project) => (
             <div
               key={project.id}
               className={`bg-white dark:bg-gray-700 rounded-xl overflow-hidden shadow-md hover:shadow-lg transition-all duration-500 transform hover:-translate-y-2 ${
@@ -258,6 +267,24 @@ const Projects = () => {
             </div>
           ))}
         </div>
+
+        {visibleCount < filteredProjects.length && (
+          <div
+            className={`mt-10 text-center transition-all duration-700 delay-200 ${
+              inView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
+            }`}
+          >
+            <button
+              type="button"
+              onClick={() =>
+                setVisibleCount((prev) => Math.min(prev + 3, filteredProjects.length))
+              }
+              className="inline-flex items-center px-6 py-3 bg-transparent border-2 border-teal-600 dark:border-teal-500 text-teal-600 dark:text-teal-400 font-medium rounded-lg shadow-sm hover:bg-teal-600/10 hover:shadow-md transition-all transform hover:-translate-y-0.5 focus:outline-none focus:ring-2 focus:ring-teal-500 focus:ring-opacity-50"
+            >
+              View more
+            </button>
+          </div>
+        )}
 
         <div
           className={`mt-16 text-center transition-all duration-700 delay-500 ${
