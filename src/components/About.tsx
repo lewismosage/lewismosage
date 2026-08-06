@@ -74,7 +74,7 @@ const About = () => {
                   Frontend Development
                 </h4>
                 <p className="text-gray-700 dark:text-gray-300">
-                  Building modern, accessible interfaces with React and TypeScript (often with Next.js and Tailwind CSS).
+                  Building interfaces with React, Vue, React Native, TypeScript, HTML5, CSS3, and Tailwind CSS.
                 </p>
               </div>
               
@@ -86,7 +86,7 @@ const About = () => {
                   Backend Development
                 </h4>
                 <p className="text-gray-700 dark:text-gray-300">
-                  Creating reliable APIs and services with Python and JavaScript, plus Go for performance-critical platform components.
+                  Shipping APIs and services with Node.js, Express, Python (Django/Flask), Go, Java, REST, WebSockets, OAuth, and JWT.
                 </p>
               </div>
               
@@ -98,7 +98,7 @@ const About = () => {
                   Database Management
                 </h4>
                 <p className="text-gray-700 dark:text-gray-300">
-                  Designing and optimizing databases with PostgreSQL (and SQLite for local/test workflows).
+                  Working with PostgreSQL, MySQL, SQLite, and Supabase — including auth and data modeling.
                 </p>
               </div>
               
@@ -110,7 +110,7 @@ const About = () => {
                   DevOps
                 </h4>
                 <p className="text-gray-700 dark:text-gray-300">
-                  Building resilient deployments with Docker, Kubernetes, Helm, and observability-minded workflows.
+                  Delivering with Git, GitHub Actions, Docker, Kubernetes, AWS, CI/CD, and Agile / TDD practices.
                 </p>
               </div>
             </div>

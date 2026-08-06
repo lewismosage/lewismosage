@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { ExternalLink, Code, ChevronDown, ChevronUp } from "lucide-react";
+import { ExternalLink, Code, ArrowUpRight } from "lucide-react";
 import { GithubIcon } from "./icons/BrandIcons";
 import { useInView } from "../hooks/useInView";
 import AskDrAI from "../assets/askdrai.png";
@@ -8,8 +8,40 @@ import ACNA from "../assets/acna.png";
 import AgriConnect from "../assets/agriconnect.png";
 import OpenOps from "../assets/openops.png";
 import Havoc from "../assets/havoc.png";
+import AASP from "../assets/AASP.png";
 
-const projects = [
+type Project = {
+  id: number;
+  title: string;
+  description: string;
+  image: string;
+  technologies: string[];
+  category: string;
+  live?: string;
+  repo: string;
+};
+
+const projects: Project[] = [
+  {
+    id: 9,
+    title: "AASP – Autonomous Application Security Platform",
+    description:
+      "An AI-powered Application Security Operating System that helps organizations identify, prioritize, and remediate vulnerabilities across authorized systems. Combines SAST, DAST, dependency and secret scanning, container and infrastructure checks, AI-assisted analysis, and attack-path visualization into mission-based, multi-tenant workflows — with evidence-backed reporting and remediation guidance.",
+    image: AASP,
+    technologies: [
+      "Python",
+      "FastAPI",
+      "Next.js",
+      "TypeScript",
+      "PostgreSQL",
+      "Redis",
+      "Docker",
+      "LangGraph",
+    ],
+    category: "fullstack",
+    live: "https://appsec-platform-frontend.vercel.app",
+    repo: "https://github.com/lewismosage/appsec-platform-frontend",
+  },
   {
     id: 7,
     title: "OpenOps – Developer Operations Console",
@@ -30,7 +62,7 @@ const projects = [
   },
   {
     id: 8,
-    title: "Havoc – Chaos Engineering Platform",
+    title: "Havoc – Chaos Engineering Platform (Ongoing)",
     description:
       "Open-source chaos engineering platform for Kubernetes and microservices. Safely inject failures like pod kills and CPU stress, measure recovery, score resilience, and understand how distributed systems behave under stress — before production does. Plugin-based injectors, dry-run mode, and a React dashboard with live run events.",
     image: Havoc,
@@ -86,22 +118,22 @@ const projects = [
     description:
       "A regional platform with over 5,000 users across East Africa, connecting child neurology professionals through education, collaboration, and patient support tools to improve neurological care in underserved communities.",
     image: EACNA,
-    technologies: ["Vite", "TypeScript", "Tailwind CSS", "Supabase"],
+    technologies: ["Vite", "TypeScript", "Tailwind CSS", "Node.js", "PostgreSQL", "Supabase"],
     category: "fullstack",
     live: "https://eacna.vercel.app/",
     repo: "https://github.com/lewismosage/eacna",
   },
   {
     id: 5,
-    title: "ACNA Healthcare Platform(Ongoing)",
+    title: "ACNA Healthcare Platform",
     description:
       "A dynamic and scalable healthcare platform designed to serve over 50,000 users across the African continent, the ACNA (African Child Neurology Association) project is dedicated to improving the lives of children through accessible, collaborative, and innovative digital health solutions.",
     image: ACNA,
     technologies: [
       "TypeScript",
       "Tailwind CSS",
-      "Python",
-      "Django",
+      "Node.js",
+      "PostgreSQL",
       "REST API",
       "Vite",
     ],
@@ -109,31 +141,14 @@ const projects = [
     live: "https://acna-africa.vercel.app/",
     repo: "https://github.com/lewismosage/acna",
   },
-  {
-    id: 6,
-    title: "Savannatek Software Company",
-    description:
-      "Built Savannatek, a modern software company website that showcases digital solutions, client services, and company values with a clean design.",
-    image: "https://images.pexels.com/photos/1181271/pexels-photo-1181271.jpeg",
-    technologies: ["React", "TypeScript", "Tailwind CSS", "Supabase"],
-    category: "fullstack",
-    live: "https://savannatek.vercel.app/",
-    repo: "https://github.com/lewismosage/savannatek",
-  },
 ];
+
+const PAGE_SIZE = 3;
 
 const Projects = () => {
   const [filter, setFilter] = useState("all");
-  const [expandedDescriptions, setExpandedDescriptions] = useState<Record<number, boolean>>({});
-  const [visibleCount, setVisibleCount] = useState(3);
+  const [visibleCount, setVisibleCount] = useState(PAGE_SIZE);
   const { ref, inView } = useInView({ threshold: 0.1 });
-
-  const toggleDescription = (id: number) => {
-    setExpandedDescriptions(prev => ({
-      ...prev,
-      [id]: !prev[id]
-    }));
-  };
 
   const filteredProjects =
     filter === "all"
@@ -141,153 +156,173 @@ const Projects = () => {
       : projects.filter((project) => project.category === filter);
 
   useEffect(() => {
-    // Reset pagination + "read more" state when switching categories.
-    setVisibleCount(3);
-    setExpandedDescriptions({});
+    setVisibleCount(PAGE_SIZE);
   }, [filter]);
 
   const visibleProjects = filteredProjects.slice(0, visibleCount);
+  const remaining = filteredProjects.length - visibleCount;
 
   return (
     <section id="projects" ref={ref} className="py-20 bg-gray-50 dark:bg-gray-800">
       <div className="container mx-auto px-6">
         <div
-          className={`text-center mb-16 transition-all duration-700 ${
+          className={`mb-12 md:mb-16 transition-all duration-700 ${
             inView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
           }`}
         >
-          <h2 className="text-3xl md:text-4xl font-bold mb-4 text-gray-900 dark:text-white">
-            Featured Projects
-          </h2>
-          <div className="w-20 h-1 bg-teal-500 mx-auto mb-6"></div>
-          <p className="text-gray-700 dark:text-gray-300 max-w-2xl mx-auto">
-            A showcase of my recent work and the technologies I've been working with
-          </p>
-        </div>
+          <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6">
+            <div className="max-w-2xl">
+              <h2 className="text-3xl md:text-4xl font-bold mb-3 text-gray-900 dark:text-white">
+                Featured Projects
+              </h2>
+              <div className="w-16 h-1 bg-teal-500 mb-4" />
+              <p className="text-gray-700 dark:text-gray-300">
+                Selected work across application security, platform engineering,
+                healthcare, and product systems.
+              </p>
+            </div>
 
-        <div
-          className={`flex justify-center mb-12 transition-all duration-700 delay-100 ${
-            inView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
-          }`}
-        >
-          <div className="inline-flex p-1 bg-gray-200 dark:bg-gray-700 rounded-lg">
-            {["all", "frontend", "backend", "fullstack"].map((category) => (
-              <button
-                key={category}
-                onClick={() => setFilter(category)}
-                className={`px-4 py-2 text-sm font-medium rounded-md transition-all ${
-                  filter === category
-                    ? "bg-white dark:bg-gray-600 text-teal-600 dark:text-teal-400 shadow-sm"
-                    : "text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white"
-                }`}
-              >
-                {category.charAt(0).toUpperCase() + category.slice(1)}
-              </button>
-            ))}
+            <div className="inline-flex self-start p-1 bg-gray-200/80 dark:bg-gray-700/80 rounded-lg">
+              {["all", "frontend", "backend", "fullstack"].map((category) => (
+                <button
+                  key={category}
+                  type="button"
+                  onClick={() => setFilter(category)}
+                  className={`px-3.5 py-2 text-sm font-medium rounded-md transition-all ${
+                    filter === category
+                      ? "bg-white dark:bg-gray-600 text-teal-600 dark:text-teal-400 shadow-sm"
+                      : "text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white"
+                  }`}
+                >
+                  {category.charAt(0).toUpperCase() + category.slice(1)}
+                </button>
+              ))}
+            </div>
           </div>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {visibleProjects.map((project) => (
-            <div
-              key={project.id}
-              className={`bg-white dark:bg-gray-700 rounded-xl overflow-hidden shadow-md hover:shadow-lg transition-all duration-500 transform hover:-translate-y-2 ${
-                inView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
-              }`}
-            >
-              <div className="h-48 overflow-hidden">
-                <img
-                  src={project.image}
-                  alt={project.title}
-                  className="w-full h-full object-cover transition-transform duration-500 hover:scale-110"
-                />
-              </div>
-              <div className="p-6">
-                <h3 className="text-xl font-bold mb-2 text-gray-800 dark:text-white">
-                  {project.title}
-                </h3>
-                <div className="relative">
-                  <p 
-                    className={`text-gray-600 dark:text-gray-300 mb-4 ${
-                      expandedDescriptions[project.id] ? '' : 'line-clamp-3'
-                    }`}
-                  >
-                    {project.description}
-                  </p>
-                  <button 
-                    onClick={() => toggleDescription(project.id)}
-                    className="text-teal-600 dark:text-teal-400 text-sm font-medium flex items-center hover:underline"
-                  >
-                    {expandedDescriptions[project.id] ? (
-                      <>
-                        <ChevronUp size={16} className="mr-1" /> Read less
-                      </>
-                    ) : (
-                      <>
-                        <ChevronDown size={16} className="mr-1" /> Read more
-                      </>
-                    )}
-                  </button>
-                </div>
-                <div className="flex flex-wrap gap-2 mb-6">
-                  {project.technologies.map((tech, techIndex) => (
-                    <span
-                      key={techIndex}
-                      className="px-2 py-1 bg-gray-100 dark:bg-gray-600 text-gray-700 dark:text-gray-300 text-xs rounded"
-                    >
-                      {tech}
-                    </span>
-                  ))}
-                </div>
-                <div className="flex justify-between pt-4 border-t border-gray-200 dark:border-gray-600">
-                  {project.live ? (
-                    <a
-                      href={project.live}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="flex items-center text-sm font-medium text-teal-600 dark:text-teal-400 hover:text-teal-700 dark:hover:text-teal-300 transition-colors"
-                    >
-                      <ExternalLink size={16} className="mr-1" /> Live Demo
-                    </a>
-                  ) : (
-                    <span className="flex items-center text-sm font-medium text-gray-400 dark:text-gray-500">
-                      <ExternalLink size={16} className="mr-1" /> Demo Coming Soon
-                    </span>
-                  )}
+        <div className="space-y-12 md:space-y-16">
+          {visibleProjects.map((project, index) => {
+            const imageOnRight = index % 2 === 1;
+
+            return (
+              <article
+                key={project.id}
+                className={`grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-center transition-all duration-700 ${
+                  inView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
+                }`}
+                style={{ transitionDelay: inView ? `${index * 80}ms` : "0ms" }}
+              >
+                <div
+                  className={`lg:col-span-7 ${
+                    imageOnRight ? "lg:order-2" : "lg:order-1"
+                  }`}
+                >
                   <a
-                    href={project.repo}
+                    href={project.live ?? project.repo}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex items-center text-sm font-medium text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white transition-colors"
+                    className="group block relative overflow-hidden rounded-2xl border border-gray-200/70 dark:border-gray-600/60 bg-gray-100 dark:bg-gray-900/40"
                   >
-                    <GithubIcon size={16} className="mr-1" /> View Code
+                    <div className="aspect-[16/10] overflow-hidden">
+                      <img
+                        src={project.image}
+                        alt={project.title}
+                        className="h-full w-full object-cover object-top transition-transform duration-700 ease-out group-hover:scale-[1.03]"
+                      />
+                    </div>
+                    <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-gray-900/25 via-transparent to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
                   </a>
                 </div>
-              </div>
-            </div>
-          ))}
+
+                <div
+                  className={`lg:col-span-5 ${
+                    imageOnRight ? "lg:order-1" : "lg:order-2"
+                  }`}
+                >
+                  <p className="text-xs font-semibold tracking-[0.18em] uppercase text-teal-600 dark:text-teal-400 mb-3">
+                    {String(index + 1).padStart(2, "0")} /{" "}
+                    {String(filteredProjects.length).padStart(2, "0")}
+                  </p>
+
+                  <h3 className="text-2xl md:text-[1.75rem] font-bold text-gray-900 dark:text-white leading-snug mb-4">
+                    {project.title}
+                  </h3>
+
+                  <p className="text-gray-600 dark:text-gray-300 leading-relaxed mb-6">
+                    {project.description}
+                  </p>
+
+                  <div className="flex flex-wrap gap-2 mb-7">
+                    {project.technologies.map((tech) => (
+                      <span
+                        key={tech}
+                        className="text-xs text-gray-700 dark:text-gray-300 border border-gray-300/80 dark:border-gray-500/70 px-2.5 py-1 rounded-full"
+                      >
+                        {tech}
+                      </span>
+                    ))}
+                  </div>
+
+                  <div className="flex flex-wrap items-center gap-3">
+                    {project.live ? (
+                      <a
+                        href={project.live}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center gap-2 px-4 py-2.5 rounded-lg bg-teal-600 hover:bg-teal-700 text-white text-sm font-medium transition-colors"
+                      >
+                        Live demo
+                        <ArrowUpRight size={16} />
+                      </a>
+                    ) : (
+                      <span className="inline-flex items-center gap-2 px-4 py-2.5 rounded-lg bg-gray-200 dark:bg-gray-700 text-gray-500 dark:text-gray-400 text-sm font-medium">
+                        <ExternalLink size={16} />
+                        Demo coming soon
+                      </span>
+                    )}
+
+                    <a
+                      href={project.repo}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-2 px-4 py-2.5 rounded-lg border border-gray-300 dark:border-gray-500 text-gray-800 dark:text-gray-100 text-sm font-medium hover:border-teal-500 hover:text-teal-600 dark:hover:text-teal-400 transition-colors"
+                    >
+                      <GithubIcon size={16} />
+                      View code
+                    </a>
+                  </div>
+                </div>
+              </article>
+            );
+          })}
         </div>
 
-        {visibleCount < filteredProjects.length && (
+        {remaining > 0 && (
           <div
-            className={`mt-10 text-center transition-all duration-700 delay-200 ${
+            className={`mt-14 text-center transition-all duration-700 ${
               inView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
             }`}
           >
             <button
               type="button"
               onClick={() =>
-                setVisibleCount((prev) => Math.min(prev + 3, filteredProjects.length))
+                setVisibleCount((prev) =>
+                  Math.min(prev + PAGE_SIZE, filteredProjects.length)
+                )
               }
-              className="inline-flex items-center px-6 py-3 bg-transparent border-2 border-teal-600 dark:border-teal-500 text-teal-600 dark:text-teal-400 font-medium rounded-lg shadow-sm hover:bg-teal-600/10 hover:shadow-md transition-all transform hover:-translate-y-0.5 focus:outline-none focus:ring-2 focus:ring-teal-500 focus:ring-opacity-50"
+              className="inline-flex items-center px-6 py-3 border-2 border-teal-600 dark:border-teal-500 text-teal-600 dark:text-teal-400 font-medium rounded-lg hover:bg-teal-600/10 transition-all focus:outline-none focus:ring-2 focus:ring-teal-500 focus:ring-opacity-50"
             >
               View more
+              <span className="ml-2 text-sm opacity-80">
+                ({remaining} remaining)
+              </span>
             </button>
           </div>
         )}
 
         <div
-          className={`mt-16 text-center transition-all duration-700 delay-500 ${
+          className={`mt-12 text-center transition-all duration-700 ${
             inView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
           }`}
         >
@@ -295,9 +330,11 @@ const Projects = () => {
             href="https://github.com/lewismosage"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center px-6 py-3 bg-gray-800 dark:bg-gray-700 text-white font-medium rounded-lg shadow-md hover:bg-gray-700 dark:hover:bg-gray-600 transition-all transform hover:-translate-y-1 focus:outline-none focus:ring-2 focus:ring-gray-500 focus:ring-opacity-50"
+            className="inline-flex items-center text-sm font-medium text-gray-600 dark:text-gray-300 hover:text-teal-600 dark:hover:text-teal-400 transition-colors"
           >
-            <Code size={20} className="mr-2" /> View More Projects on GitHub
+            <Code size={16} className="mr-2" />
+            See more on GitHub
+            <ArrowUpRight size={14} className="ml-1" />
           </a>
         </div>
       </div>
