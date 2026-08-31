@@ -19,21 +19,21 @@ Committed only when this content changes.
 | Package | Current | Wanted | Latest | Type |
 | --- | --- | --- | --- | --- |
 | `@eslint/js` | 9.12.0 | 9.39.5 | 10.0.1 | — |
-| `@supabase/supabase-js` | 2.49.4 | 2.112.3 | 2.112.3 | — |
+| `@supabase/supabase-js` | 2.49.4 | 2.112.4 | 2.112.4 | — |
 | `@types/react-dom` | 18.3.0 | 18.3.7 | 19.2.5 | — |
 | `@types/react` | 18.3.11 | 18.3.31 | 19.2.18 | — |
-| `@vitejs/plugin-react` | 4.3.2 | 4.7.0 | 6.1.0 | — |
+| `@vitejs/plugin-react` | 4.3.2 | 4.7.0 | 6.1.1 | — |
 | `autoprefixer` | 10.4.20 | 10.5.4 | 10.5.4 | — |
 | `eslint-plugin-react-hooks` | 5.1.0-rc-fb9a90fa48-20240614 | 5.2.0 | 7.1.1 | — |
-| `eslint-plugin-react-refresh` | 0.4.12 | 0.4.26 | 0.5.4 | — |
-| `eslint` | 9.12.0 | 9.39.5 | 10.9.0 | — |
+| `eslint-plugin-react-refresh` | 0.4.12 | 0.4.26 | 0.5.5 | — |
+| `eslint` | 9.12.0 | 9.39.5 | 10.9.1 | — |
 | `globals` | 15.11.0 | 15.15.0 | 17.11.0 | — |
-| `lucide-react` | 1.24.0 | 1.33.0 | 1.33.0 | — |
+| `lucide-react` | 1.24.0 | 1.38.0 | 1.38.0 | — |
 | `postcss` | 8.4.47 | 8.5.26 | 8.5.26 | — |
 | `react-dom` | 18.3.1 | 18.3.1 | 19.2.8 | — |
 | `react` | 18.3.1 | 18.3.1 | 19.2.8 | — |
 | `tailwindcss` | 3.4.13 | 3.4.19 | 4.3.3 | — |
-| `typescript-eslint` | 8.8.1 | 8.67.0 | 8.67.0 | — |
+| `typescript-eslint` | 8.8.1 | 8.68.0 | 8.68.0 | — |
 | `typescript` | 5.6.3 | 5.9.3 | 7.0.2 | — |
 | `vite` | 5.4.8 | 5.4.21 | 8.2.2 | — |
 
