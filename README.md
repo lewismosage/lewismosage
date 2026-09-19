@@ -1,6 +1,6 @@
 # Hi, I'm Lewis Mosage
 
-Software Engineer from Nairobi, Kenya. I specialize in **finance and insurance platforms**, **healthcare systems**, and the tooling around them — from payer and provider portals to pharmacy and marketplace products. I design and ship full-stack systems: APIs, data models, auth, workflows, and interfaces that hold up in production.
+Software Engineer from Nairobi, Kenya. I specialize in **finance and insurance platforms**, **healthcare systems**, and the tooling around them  from payer and provider portals to pharmacy and marketplace products. I design and ship full-stack systems: APIs, data models, auth, workflows, and interfaces that hold up in production.
 
 A large part of my current work is an insurance ecosystem spanning payer software, member and provider portals, scheme management, and related marketplace flows. Alongside that I build **pharmacy platforms**, community healthcare products, and earlier public work across Africa (neurology associations, farmer marketplaces, and AI-assisted care tools).
 
