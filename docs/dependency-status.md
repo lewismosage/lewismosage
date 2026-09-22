@@ -23,12 +23,12 @@ Committed only when this content changes.
 | `@types/react-dom` | 18.3.0 | 18.3.7 | 19.3.0 | — |
 | `@types/react` | 18.3.11 | 18.3.31 | 19.3.0 | — |
 | `@vitejs/plugin-react` | 4.3.2 | 4.7.0 | 6.1.1 | — |
-| `autoprefixer` | 10.4.20 | 10.6.0 | 10.6.0 | — |
+| `autoprefixer` | 10.4.20 | 10.6.1 | 10.6.1 | — |
 | `eslint-plugin-react-hooks` | 5.1.0-rc-fb9a90fa48-20240614 | 5.2.0 | 7.1.1 | — |
-| `eslint-plugin-react-refresh` | 0.4.12 | 0.4.26 | 0.5.6 | — |
-| `eslint` | 9.12.0 | 9.39.5 | 10.10.0 | — |
+| `eslint-plugin-react-refresh` | 0.4.12 | 0.4.26 | 0.5.7 | — |
+| `eslint` | 9.12.0 | 9.39.5 | 10.11.0 | — |
 | `globals` | 15.11.0 | 15.15.0 | 17.12.0 | — |
-| `lucide-react` | 1.24.0 | 1.46.0 | 1.46.0 | — |
+| `lucide-react` | 1.24.0 | 1.47.0 | 1.47.0 | — |
 | `postcss` | 8.4.47 | 8.5.28 | 8.5.28 | — |
 | `react-dom` | 18.3.1 | 18.3.1 | 19.3.0 | — |
 | `react` | 18.3.1 | 18.3.1 | 19.3.0 | — |
