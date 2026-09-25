@@ -11,6 +11,7 @@ const rotatingSkills = [
   'Docker',
   'Kubernetes',
   'AWS',
+  'CI/CD',
 ];
 
 const skillGroups = [
