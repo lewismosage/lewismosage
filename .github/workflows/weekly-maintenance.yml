@@ -8,7 +8,6 @@ on:
 
 permissions:
   contents: write
-  pull-requests: write
 
 concurrency:
   group: weekly-maintenance
@@ -20,12 +19,12 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
 
       - name: Setup Node.js
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v5
         with:
-          node-version: "20"
+          node-version: "22"
           cache: npm
 
       - name: Install dependencies
@@ -41,20 +40,21 @@ jobs:
             echo ""
             echo "Generated \`docs/dependency-status.md\`."
             echo ""
-            echo "Opens a PR only when the file content changed"
+            echo "Commits only when the file content changed"
             echo "(no empty churn commits)."
           } >> "$GITHUB_STEP_SUMMARY"
 
-      - name: Open PR only if changed
-        uses: peter-evans/create-pull-request@v6
-        with:
-          commit-message: "chore: refresh dependency status report"
-          title: "chore: refresh dependency status report"
-          body: |
-            Weekly maintenance regenerated `docs/dependency-status.md` because
-            outdated packages or audit findings changed.
+      - name: Commit only if changed
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
 
-            Review Dependabot PRs for upgrades; this report is the snapshot only.
-          branch: chore/dependency-status
-          delete-branch: true
-          labels: dependencies, automated
+          git add docs/dependency-status.md
+
+          if git diff --cached --quiet; then
+            echo "No dependency status changes — skipping commit."
+            exit 0
+          fi
+
+          git commit -m "chore: refresh dependency status report"
+          git push
